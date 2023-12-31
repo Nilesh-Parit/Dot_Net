@@ -74,8 +74,8 @@ public static class DBManager
     {
         MySqlConnection connection = new MySqlConnection();
         connection.ConnectionString = "server=127.0.0.1;port=3306;user=root;password=temp@9545;database=Neel";
-        string query = "update employee set Fname='"+emp.Fname+"',Lname='"+emp.Lname+"',gender='"+emp.Gender+"',dept='"+emp.Dept+"',salary="+emp.Salary+"where empid="+emp.EmpID+"";
-        
+        string query = "update employee set Fname='"+emp.Fname+"',Lname='"+emp.Lname+"',gender='"+emp.Gender+"',dept='"+emp.Dept+"',salary="+emp.Salary+" where EmpID="+emp.EmpID+"";
+        Console.WriteLine(query);
         MySqlCommand command = new MySqlCommand(query,connection);
 
         try
@@ -103,7 +103,7 @@ public static class DBManager
 
         try
         {
-            connection.Open();
+            connection.Open();  
             command.ExecuteNonQuery();
         }
         catch(Exception e)
