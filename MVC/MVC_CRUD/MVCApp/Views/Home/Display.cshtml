@@ -1,0 +1,48 @@
+@using BOL;
+@{
+    ViewData["Title"]="Display";
+}
+<a href="./Index">Back to Home</a>
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+<hr/>
+<div class="text-center" style="background-color:powderblue";><br><br>
+ @{
+        List<Employee>? ls =  ViewData["display"] as List<Employee>;
+}
+<table class="center" border="1" width="1000">
+    <thead>
+        <tr>
+        <th height="50">ID</th>
+        <th height="50">First Name</th>
+        <th height="50">Last Name</th>
+        <th height="50">Gender</th>
+        <th height="50">Department</th>
+        <th height="50">Salary (Rs.)</th>
+        </tr>
+    <thead>
+    <tbody>
+        
+            @foreach(Employee emp in ls)
+            {
+                <tr>
+                <td height="50">@emp.EmpID</td>
+                <td height="50">@emp.Fname</td>
+                <td height="50">@emp.Lname</td>
+                <td height="50">@emp.Gender</td>
+                <td height="50">@emp.Dept</td>
+                <td height="50">@emp.Salary</td>
+                </tr>
+            }
+        
+    <tbody>
+<table><br><br>
+</div>
