@@ -1,0 +1,48 @@
+@using BOL;
+@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    List<Timesheet>? ls = this.ViewData["display"] as List<Timesheet>;
+}
+
+<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+<div class="text-center" style="background-color:powderblue"><br><br>
+
+    <h2><b>Employee Time Sheet</b></h2><br><hr><br>
+    <table class="center" border="1" width="500">
+        <thead>
+            <tr>
+                <td height="50"><b>ID</b></td>
+                <td height="50"><b>Date</b></td>
+                <td height="50"><b>Work</b></td>
+                <td height="50"><b>Duration(Hrs)</b></td>
+                <td height="50"><b>Status</b></td>
+                <td height="50"><b>Edit Details</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Timesheet ts in ls)
+            {
+                <tr>
+                    <td height="50">@ts.id</td>
+                    <td height="50">@ts.Date</td>
+                    <td height="50">@ts.Work</td>
+                    <td height="50">@ts.Duration</td>
+                    <td height="50">@ts.Status</td>
+                    <td height="50"><a href="Home/Update">Edit</a></td>
+                </tr>
+            }
+        </tbody>
+    </table><br><br><br>
+</div>
